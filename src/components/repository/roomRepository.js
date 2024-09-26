@@ -3,7 +3,7 @@ import axios from '../custom-axios/axios';
 const RoomService = {
     fetchRooms: async () => {
         try {
-            const response = await axios.get('https://roommanagement-d503.onrender.com/api/rooms');
+            const response = await axios.get(`https://roommanagement-d503.onrender.com/api/rooms`);
             return response.data; // Returning the room data
         } catch (error) {
             console.error("Error fetching rooms:", error);
@@ -13,7 +13,7 @@ const RoomService = {
 
     addRoom: async (roomData) => {
         try {
-            const response = await axios.post("https://roommanagement-d503.onrender.com/api/rooms/add", roomData);
+            const response = await axios.post(`/api/rooms/add`, roomData);
             return response.data;
         } catch (error) {
             console.error("Error adding room:", error);
@@ -53,7 +53,7 @@ const RoomService = {
 
     updateRoom: async (roomName, roomData) => {
         try {
-            const response = await axios.put(`/api/rooms/update/${roomName}`, roomData);
+            const response = await axios.put(`/api/rooms/update/${roomName}`, roomData); // Update room details
             return response.data;
         } catch (error) {
             console.error("Error updating room:", error);
