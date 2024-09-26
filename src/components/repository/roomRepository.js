@@ -3,7 +3,7 @@ import axios from '../custom-axios/axios';
 const RoomService = {
     fetchRooms: async () => {
         try {
-            const response = await axios.get(`https://roommanagement-d503.onrender.com/api/rooms`);
+            const response = await axios.get(`/api/rooms`);
             return response.data; // Returning the room data
         } catch (error) {
             console.error("Error fetching rooms:", error);
