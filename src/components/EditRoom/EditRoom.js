@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from '../custom-axios/axios'; // Ensure this imports your configured axios instance
+import axios from '../custom-axios/axios';
 
 const EditRoom = () => {
     const { roomName } = useParams();
@@ -17,7 +17,6 @@ const EditRoom = () => {
     const [roomTypes, setRoomTypes] = useState([]);
 
     useEffect(() => {
-        // Fetch room details and room types when the component mounts
         const fetchRoomDetails = async () => {
             try {
                 const response = await axios.get(`/api/rooms/${roomName}`);
@@ -53,10 +52,9 @@ const EditRoom = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Ensure the correct endpoint for updating the room
             await axios.post(`/api/rooms/edit/${roomName}`, formData);
             alert('Room updated successfully!');
-            navigate('/'); // Redirect after successful update
+            navigate('/');
         } catch (error) {
             console.error('Error updating room:', error);
             alert('Error updating room. Please try again later.');

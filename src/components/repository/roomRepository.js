@@ -4,10 +4,10 @@ const RoomService = {
     fetchRooms: async () => {
         try {
             const response = await axios.get(`/api/rooms`);
-            return response.data; // Returning the room data
+            return response.data;
         } catch (error) {
             console.error("Error fetching rooms:", error);
-            throw error; // Rethrow error to be handled in the component
+            throw error;
         }
     },
 
@@ -46,14 +46,14 @@ const RoomService = {
                 await axios.delete(`/api/rooms/delete/${roomName}`);
             } catch (error) {
                 console.error('Error deleting room:', error);
-                throw error; // Rethrow the error to handle it in the component
+                throw error;
             }
         },
 
 
     updateRoom: async (roomName, roomData) => {
         try {
-            const response = await axios.put(`/api/rooms/update/${roomName}`, roomData); // Update room details
+            const response = await axios.put(`/api/rooms/update/${roomName}`, roomData);
             return response.data;
         } catch (error) {
             console.error("Error updating room:", error);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './rooms.css';
-import RoomService from "../repository/roomRepository"; // Import RoomService
+import RoomService from "../repository/roomRepository";
 import { Link } from "react-router-dom";
 
 const Rooms = () => {
@@ -9,7 +9,7 @@ const Rooms = () => {
 
     const fetchRooms = async () => {
         try {
-            const fetchedRooms = await RoomService.fetchRooms(); // Fetch rooms from RoomService
+            const fetchedRooms = await RoomService.fetchRooms();
             setRooms(fetchedRooms);
         } catch (error) {
             console.error('Error fetching rooms:', error);
@@ -17,7 +17,7 @@ const Rooms = () => {
     };
 
     useEffect(() => {
-        fetchRooms(); // Fetch rooms when the component mounts
+        fetchRooms();
     }, []);
 
     const handleDelete = async (roomName) => {
@@ -25,7 +25,7 @@ const Rooms = () => {
         if (!confirmDelete) return;
 
         try {
-            await RoomService.deleteRoom(roomName); // Delete room using RoomService
+            await RoomService.deleteRoom(roomName);
             const updatedRooms = rooms.filter(room => room.name !== roomName);
             setRooms(updatedRooms);
             alert('Room deleted successfully!');

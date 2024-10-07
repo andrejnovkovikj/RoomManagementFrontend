@@ -13,7 +13,6 @@ const AddRoom = ({ onRoomAdded }) => {
 
     const [roomTypes, setRoomTypes] = useState([]);
 
-    // Fetch room types when the component mounts
     useEffect(() => {
         fetchRoomTypes();
     }, []);
@@ -47,7 +46,7 @@ const AddRoom = ({ onRoomAdded }) => {
         try {
              await axios.post('https://roommanagement-d503.onrender.com/api/rooms/add', formData);
                 alert('Room added successfully!');
-                resetForm(); // Reset form fields
+                resetForm();
 
         } catch (error) {
             console.error('Error during room addition:', error);
